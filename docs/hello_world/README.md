@@ -38,3 +38,5 @@ class HelloWorldController {
     }
 }
 ```
+
+Je kan nu de applicatie starten door op het pijltje te klikken: ![Run application](/run_application.png)

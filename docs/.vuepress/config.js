@@ -3,7 +3,7 @@ module.exports = {
     description: 'Spring Kotlin workshop',
     themeConfig: {
         displayAllHeaders: true,
-        repo: 'mtijnnl/workshop',
+        repo: 'MTijn/workshop',
         docsDir: 'docs',
         editLinks: false,
         editLinkText: 'Help us improve this page!',
@@ -18,7 +18,8 @@ module.exports = {
             '/gebruikers_zien/',
             '/gebruiker_aanmaken/',
             '/gebruiker_wijzigen/',
-            '/gebruiker_verwijderen/'
+            '/gebruiker_verwijderen/',
+            '/eindresultaat/'
         ]
     },
     head: [
