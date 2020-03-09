@@ -45,15 +45,22 @@ Hierin stoppen we de volgende code
 ``` kotlin
 package com.enreach.workshop
 
+import org.springframework.stereotype.Repository
+
+@Repository
 class UserDatabase {
-    private val users: MutableCollection<User> = mutableListOf<User>(
-        User(1, "test@test.nl", "Eerste tester"),
-        User(2, "test2@test.nl", "Tweede tester"),
-        User(3, "test3@test.nl", "Derde tester")
+    private val users: Map<Int, User> = mutableMapOf<Int, User>(
+        Pair(1, User(1, "test@test.nl", "Eerste tester")),
+        Pair(2, User(2, "test2@test.nl", "Tweede tester")),
+        Pair(3, User(3, "test3@test.nl", "Derde tester"))
     )
 
-    fun showAllUsers(): Collection<User> {
+    fun showAllUsers(): Map<Int, User> {
         return users
+    }
+
+    fun showSingleUser(id: Int): User? {
+        return users[id]
     }
 }
 ```
