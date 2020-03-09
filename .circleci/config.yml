@@ -21,12 +21,7 @@ jobs:
       - run:
           name: build
           command: 'npm run docs:build'
-      - run:
-          name: login to docker
-          command: 'echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin'
-      - run:
-          name: build docker image
-          command: 'docker build -t mtijnnl/workshop:latest .'
-      - run:
-        name: push docker image
-        command: 'docker push mtijnnl/workshop:latest'
+      - run: |
+          echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
+          docker build -t mtijnnl/presentations:latest .
+          docker push mtijnnl/presentations:latest
