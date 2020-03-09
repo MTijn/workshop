@@ -24,9 +24,9 @@ jobs:
           name: angular-build
           command: npm run build --no-progress
       - run: |
-        docker login -u $DOCKER_USER -p $DOCKER_PASS
-        docker image build -t mtijnnl/workshop:latest .
-        docker push mtijnnl/workshop:latest
+          echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
+          docker build -t mtijnnl/workshop:latest .
+          docker push mtijnnl/workshop:latest
 
 workflows:
   version: 2.1
