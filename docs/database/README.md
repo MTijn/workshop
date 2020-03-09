@@ -1,3 +1,62 @@
 ---
 title: Database
 ---
+
+# Wat is een database?
+
+Een database is een plek waar computers gegevens opslaan, we hebben het gehad over een API
+van Instagram, maar Instagram moet ook gegevens over jou oplaan. Wie je bent, je profiel, de foto's en
+video's de je ge-upload hebt.
+
+In onze workshop gaan we gebruikers opslaan, laten we eens kijken wat we nodig hebben voor een gebruiker
+
+| id  | Email Address | Name          |
+| --- | ------------- | ------------- |
+| 1   | test@test.nl  | Eerste tester |
+| 2   | test2@test.nl | Tweede tester |
+| 3   | test3@test.nl | Derde tester  |
+
+We hebben hier dus 3 kolommen die we in onze database tabel stoppen, een nummer of text waarmee we onze gebruiker
+kunnen identificeren in de rest van onze API, een gebruikersnaam en een naam.
+
+## Code
+
+### User
+Laten we eerst de gebruiker aanmaken zoals we die ook willen laten zien in onze API, net zoals in onze
+eerdere HelloWorldController maken we een nieuwe class aan:
+
+![Nieuw bestand aanmaken](/user_class.png)
+
+Wanneer je op enter hebt gedrukt dan plak je de volgende code hierin
+
+``` kotlin
+package com.enreach.workshop
+
+data class User(val id: Int, val emailAddress: String, val userName: String)
+```
+
+### User database
+Nu moeten we wel een mogelijkheid maken tot het ophalen van de gebruikers uit onze database, laten we beginnen met het aanmaken
+van de ``UserDatabase`` class.
+
+![Nieuw bestand aanmaken](/user_database.png)
+
+Hierin stoppen we de volgende code
+``` kotlin
+package com.enreach.workshop
+
+class UserDatabase {
+    private val users: MutableCollection<User> = mutableListOf<User>(
+        User(1, "test@test.nl", "Eerste tester"),
+        User(2, "test2@test.nl", "Tweede tester"),
+        User(3, "test3@test.nl", "Derde tester")
+    )
+
+    fun showAllUsers(): Collection<User> {
+        return users
+    }
+}
+```
+
+Zie je hierin zitten dezelfde gebruikers als in de tabel hierboven, maar nu kunnen we nog steeds geen
+gebruikers laten zien in de API. Klik hieronder door naar "Gebruikers zien"
