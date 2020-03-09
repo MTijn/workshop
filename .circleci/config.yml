@@ -1,28 +1,36 @@
 version: 2.1
 jobs:
   build:
-    machine: true
-    working_directory: ~/project
     docker:
       - image: circleci/node:latest
+
+    working_directory: ~/repo
+
     steps:
+      - setup_remote_docker
       - checkout
-      - run:
-          name: update-npm
-          command: 'sudo npm install -g npm@latest'
       - restore_cache:
-          key: dependency-cache-{{ checksum "package-lock.json" }}
+          keys:
+            - v1-dependencies-{{ checksum "package-lock.json" }}
+            - v1-dependencies-
       - run:
-          name: install-npm
+          name: install-dependencies
           command: npm install
       - save_cache:
-          key: dependency-cache-{{ checksum "package-lock.json" }}
+          key: v1-dependencies-{{ checksum "package-lock.json" }}
           paths:
-            - ./node_modules
+            - node_modules
       - run:
-          name: build
-          command: 'npm run docs:build'
+          name: angular-build
+          command: npm run build --no-progress
       - run: |
-          echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
-          docker build -t mtijnnl/presentations:latest .
-          docker push mtijnnl/presentations:latest
+        docker login -u $DOCKER_USER -p $DOCKER_PASS
+        docker image build -t mtijnnl/workshop:latest .
+        docker push mtijnnl/workshop:latest
+
+workflows:
+  version: 2.1
+  build:
+    jobs:
+      - build:
+          context: docker
