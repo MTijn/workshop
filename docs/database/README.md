@@ -32,7 +32,7 @@ Wanneer je op enter hebt gedrukt dan plak je de volgende code hierin
 ``` kotlin
 package com.enreach.workshop
 
-data class User(val id: Int, val emailAddress: String, val userName: String)
+data class User(val id: Int, val emailAddress: String, val name: String)
 ```
 
 ### User database
