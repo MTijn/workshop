@@ -1,6 +1,7 @@
 version: 2.1
 jobs:
   build:
+    machine: true
     working_directory: ~/project
     docker:
       - image: circleci/node:latest
