@@ -27,6 +27,6 @@ jobs:
       - run:
           name: build docker image
           command: docker build -t mtijnnl/workshop:latest .
-      -run:
+      - run:
         name: push docker image
         command: docker push mtijnnl/workshop:latest
