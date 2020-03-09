@@ -21,8 +21,8 @@ jobs:
           paths:
             - node_modules
       - run:
-          name: angular-build
-          command: npm run build --no-progress
+          name: docs build
+          command: npm run docs:build
       - run: |
           echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
           docker build -t mtijnnl/workshop:latest .
