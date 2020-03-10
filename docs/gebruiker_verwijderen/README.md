@@ -18,7 +18,7 @@ fun deleteUser(user: User) {
     users.remove(user.id)
 }
 ```
-De totale class ziet er nu dan zo uit:
+Wanneer je het bestand opslaat ziet de class er zo uit:
 ```kotlin
 package com.enreach.workshop
 
@@ -88,7 +88,7 @@ fun deleteUser(@PathVariable userId: Int): ResponseEntity<Any> {
 }
 ```
 
-En dan ziet het totaal er nu zo uit:
+Sla het bestand op en dan ziet het totaal er nu zo uit:
 ```kotlin
 package com.enreach.workshop
 

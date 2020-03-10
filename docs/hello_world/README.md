@@ -39,6 +39,6 @@ class HelloWorldController {
 }
 ```
 
-Je kan nu de applicatie starten door op het pijltje te klikken: ![Run application](/run_application.png)
+Sla het bestand op en je kan nu de applicatie starten door op het pijltje te klikken: ![Run application](/run_application.png)
 
 Wanneer alles klaar is, dan browse je naar [http://localhost:8080](http://localhost:8080)

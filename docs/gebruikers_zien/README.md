@@ -44,7 +44,7 @@ class UserController(val userDatabase: UserDatabase) {
 }
 ```
 
-Laten we eens kijken wat we nu eigenlijk gemaakt hebben, als je op dit play knopje ![Applicatie runnen](/run_application.png) klikt
+Laten we eens kijken wat we nu eigenlijk gemaakt hebben, sla het bestand op en als je op dit play knopje ![Applicatie runnen](/run_application.png) klikt
 dan zal de applicatie starten, je kan nu de applicatie openen door naar [http://localhost:8080](http://localhost:8080) te browsen.
 
 Je zal nu de volgende 2 items zien ![User endpoint](/user_endpoint.png)

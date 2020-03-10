@@ -18,7 +18,7 @@ fun editUser(user: User) {
     users[user.id] = user
 }
 ```
-De totale class ziet er nu zo uit:
+Sla het bestand op en je totale class ziet er nu zo uit:
 ```kotlin
 package com.enreach.workshop
 
@@ -78,7 +78,7 @@ fun editUser(@PathVariable userId: Int, @RequestBody user: User): ResponseEntity
 }
 ```
 
-Nu ziet de totale class er zo uit:
+Als je het bestand opslaat ziet de totale class er zo uit:
 ```kotlin
 package com.enreach.workshop
 

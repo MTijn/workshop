@@ -27,7 +27,7 @@ fun addUser(user: User) {
 }
 ```
 
-De class ziet er nu zo uit:
+Sla de class op en de class ziet er nu zo uit:
 ```kotlin
 package com.enreach.workshop
 

@@ -35,6 +35,8 @@ package com.enreach.workshop
 data class User(val id: Int, val emailAddress: String, val name: String)
 ```
 
+Nu kunnen we dit bestand opslaan
+
 ### User database
 Nu moeten we wel een mogelijkheid maken tot het ophalen van de gebruikers uit onze database, laten we beginnen met het aanmaken
 van de ``UserDatabase`` class.
@@ -66,4 +68,4 @@ class UserDatabase {
 ```
 
 Zie je hierin zitten dezelfde gebruikers als in de tabel hierboven, maar nu kunnen we nog steeds geen
-gebruikers laten zien in de API. Klik hieronder door naar "Gebruikers zien"
+gebruikers laten zien in de API, sla het bestand op en klik hieronder door naar "Gebruikers zien"
