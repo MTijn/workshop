@@ -10,11 +10,10 @@ video's de je ge-upload hebt.
 
 In onze workshop gaan we gebruikers opslaan, laten we eens kijken wat we nodig hebben voor een gebruiker
 
-| id  | Email Address | Name          |
-| --- | ------------- | ------------- |
-| 1   | test@test.nl  | Eerste tester |
-| 2   | test2@test.nl | Tweede tester |
-| 3   | test3@test.nl | Derde tester  |
+| id  | Email Address                | Name          |
+| --- | ---------------------------- | ------------- |
+| 1   | yari.rietveld@enreach.com    | Yari Rietveld |
+| 2   | martijn.klene@voiceworks.com | Martijn Klene |
 
 We hebben hier dus 3 kolommen die we in onze database tabel stoppen, een nummer of text waarmee we onze gebruiker
 kunnen identificeren in de rest van onze API, een gebruikersnaam en een naam.
@@ -52,9 +51,8 @@ import org.springframework.stereotype.Repository
 @Repository
 class UserDatabase {
     private val users: Map<Int, User> = mutableMapOf<Int, User>(
-        Pair(1, User(1, "test@test.nl", "Eerste tester")),
-        Pair(2, User(2, "test2@test.nl", "Tweede tester")),
-        Pair(3, User(3, "test3@test.nl", "Derde tester"))
+        Pair(1, User(1, "yari.rietveld@enreach.com", "Yari Rietveld")),
+        Pair(2, User(2, "martijn.klene@voiceworks.com", "Martijn Klene"))
     )
 
     fun showAllUsers(): Map<Int, User> {
