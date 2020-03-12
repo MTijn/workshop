@@ -63,30 +63,6 @@ class UserDatabase {
     fun showSingleUser(id: Int): User? {
         return users[id]
     }
-
-    @Throws(RuntimeException::class)
-    fun addUser(user: User) {
-        if (users.containsKey(user.id)) {
-            throw RuntimeException(String.format("User with ID: %d already exists, can not add that user again", user.id))
-        }
-        users[user.id] = user
-    }
-
-    @Throws(RuntimeException::class)
-    fun editUser(user: User) {
-        if (!users.containsKey(user.id)) {
-            throw RuntimeException(String.format("User with ID %d was not found for editing", user.id))
-        }
-        users.replace(user.id, user)
-    }
-
-    @Throws(RuntimeException::class)
-    fun deleteUser(user: User) {
-        if (!users.containsKey(user.id)) {
-            throw RuntimeException(String.format("User with ID %d was not found for deleting", user.id))
-        }
-        users.remove(user.id)
-    }
 }
 ```
 
