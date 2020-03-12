@@ -47,10 +47,11 @@ Hierin stoppen we de volgende code
 package com.enreach.workshop
 
 import org.springframework.stereotype.Repository
+import java.lang.RuntimeException
 
 @Repository
 class UserDatabase {
-    private val users: Map<Int, User> = mutableMapOf<Int, User>(
+    private val users: MutableMap<Int, User> = mutableMapOf<Int, User>(
         Pair(1, User(1, "yari.rietveld@enreach.com", "Yari Rietveld")),
         Pair(2, User(2, "martijn.klene@voiceworks.com", "Martijn Klene"))
     )
@@ -61,6 +62,30 @@ class UserDatabase {
 
     fun showSingleUser(id: Int): User? {
         return users[id]
+    }
+
+    @Throws(RuntimeException::class)
+    fun addUser(user: User) {
+        if (users.containsKey(user.id)) {
+            throw RuntimeException(String.format("User with ID: %d already exists, can not add that user again", user.id))
+        }
+        users[user.id] = user
+    }
+
+    @Throws(RuntimeException::class)
+    fun editUser(user: User) {
+        if (!users.containsKey(user.id)) {
+            throw RuntimeException(String.format("User with ID %d was not found for editing", user.id))
+        }
+        users.replace(user.id, user)
+    }
+
+    @Throws(RuntimeException::class)
+    fun deleteUser(user: User) {
+        if (!users.containsKey(user.id)) {
+            throw RuntimeException(String.format("User with ID %d was not found for deleting", user.id))
+        }
+        users.remove(user.id)
     }
 }
 ```
